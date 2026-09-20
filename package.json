@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "stripe": "17.7.0"
+    "stripe": "22.6.2"
   }
 }

@@ -11,11 +11,16 @@ jobs:
         with:
           fetch-depth: 0
           ref: "${{ github.event.pull_request.head.sha }}"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
       - id: isotope
-        uses: hmartel222/hophacksf26/action@9f2ca965d957122b57a783a38f8767b20045e74b
+        uses: hmartel222/hophacksf26/action@0bd2ea0f50bd17f0d1a527ce4f076b1e4a4d95b9
         with:
           reasoner: off
           repair: off
+          gemini-api-key: ${{ secrets.GEMINI_API_KEY }}
       - name: Upload validated Isotope evidence
         if: always()
         uses: actions/upload-artifact@v4
